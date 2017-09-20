@@ -9,6 +9,7 @@
  * @param {string} name     The item's name.
  * @property {string} name
  */
+
  class Item{
   constructor(name){
     this.name = name;
@@ -104,7 +105,7 @@
     this.speed = speed;
     this.isAlive = true;
     this.equipped = false;
-    this._pack = [];
+    this._pack = [item1, weapon1, food1];
     this._maxHealth = health;
   }
   getPack(){
@@ -136,13 +137,13 @@
       console.log(this.name + " has discarded " + item.name);
       return true;
     }else{
-      console.log(item.name + " was not found or discarded ");
+      console.log(item.name + " is not in your pack");
       return false;
     }
   }
   equip(itemToEquip) {
     var newItemIndex = this._pack.indexOf(itemToEquip);
-    if (newItemIndex > -1 && itemToEquip instanceof Weapon) {  //Player already has a Weapon equipped
+    if (newItemIndex !== -1 && itemToEquip instanceof Weapon) {  //Player already has a Weapon equipped
       if (this.equipped === false) {  // If player is not equipped
         this.equipped = itemToEquip;  //Then equip the player with itemToEquip
         this._pack.splice(newItemIndex, 1);  //remove the itemToEquip from the bag
@@ -184,7 +185,7 @@
       console.log("No weapon equipped");
       return this.equipped.name === false;
     }else {
-      console.log(this.name + "has" + this.equipped + "equipped.");
+      console.log(this.name + " has " + this.equipped + "equipped.");
       return this.equipped.name;
     }
   }
@@ -223,6 +224,40 @@ class ExplodingZombie extends Zombie{
     super(health, strength, speed);
   }
 }
+
+// var item1 = new Item("med-kit");
+// //console.log("ITEM 1: ", item1.name);
+
+// var item2 = new Item("purple drank");
+
+// var weapon1 = new Weapon("rusty shiv", 22);
+// //console.log("WEAPON 1: ", weapon1.name, weapon1.damage);
+
+// var food1 = new Food("takoyaki", 35);
+// //console.log("FOOD 1: ", food1.name, food1.energy);
+
+// var player1 = new Player("Brendan", 100, 50, 75);
+// // console.log("PLAYER 1: ", player1.name, player1.health, player1.strength, player1.speed);
+
+// // console.log("GET PACK: ", player1.getPack());
+
+// // console.log("MAX HEALTH: ", player1.getMaxHealth());
+
+// // player1.checkPack();
+
+// // player1.discardItem(item1);
+
+// //player1.takeItem(item2);
+
+// //player1.checkPack();
+
+
+// console.log(player1.equipped);
+// //player1.equip(weapon1);
+// //player1.equippedWith(weapon1);
+// //console.log(player1.equipped);
+
+
 
 
 
