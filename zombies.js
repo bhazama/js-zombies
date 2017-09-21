@@ -198,6 +198,7 @@ function Zombie(health, strength, speed){
   this._maxHealth = health;
 }
 
+
 function FastZombie(health,strength,speed){
   this.health = health;
   this.speed = speed;
@@ -205,6 +206,38 @@ function FastZombie(health,strength,speed){
   Zombie.call(this,health,strength,speed);
 }
 FastZombie.prototype = Object.create(Zombie.prototype);
+FastZombie.prototype.constructor = FastZombie;
+
+
+function StrongZombie(health, strength, speed){
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this,health,strength,speed);
+}
+StrongZombie.prototype = Object.create(Zombie.prototype);
+FastZombie.prototype.constructor = StrongZombie;
+
+
+function RangedZombie(health,strength,speed){
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this,health,strength,speed);
+}
+RangedZombie.prototype = Object.create(Zombie.prototype);
+RangedZombie.prototype.constructor = RangedZombie;
+
+
+function ExplodingZombie(health,strength,speed){
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this,health,strength,speed);
+}
+ExplodingZombie.prototype = Object.create(Zombie.prototype);
+ExplodingZombie.prototype.constructor = ExplodingZombie;
+
 /**
  * Player Class Method => checkPack()
  * -----------------------------
