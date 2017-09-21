@@ -375,7 +375,7 @@ describe('Player', function() {
       player.equippedWith().should.equal(crossbow.name);
     });
 
-    it.skip('should return false if nothing is equipped', function() {
+    it('should return false if nothing is equipped', function() {
       var player = new Player("Lee", 100, 15, 7);
       var crossbow = new Weapon("Crossbow", 35);
 
